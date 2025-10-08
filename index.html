@@ -3,430 +3,502 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Engineering Poonjar - The College Chronicles</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700&family=Source+Sans+Pro:wght@300;400;600&display=swap" rel="stylesheet">
+    <title>Engineering Chronicles | Poonjar</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
-        :root {
-            --primary: #2c3e50;
-            --secondary: #3498db;
-            --accent: #e74c3c;
-            --light: #ecf0f1;
-            --dark: #2c3e50;
-            --text: #34495e;
-            --shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-        }
-        
         * {
             margin: 0;
             padding: 0;
             box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
         }
-        
+
+        :root {
+            --primary: #6C63FF;
+            --secondary: #FF6584;
+            --accent: #36D1DC;
+            --dark: #1A1A2E;
+            --light: #F5F5F7;
+            --text: #333344;
+            --shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+            --transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+        }
+
         body {
-            font-family: 'Source Sans Pro', sans-serif;
+            background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
             color: var(--text);
-            line-height: 1.6;
-            background-color: #f9f9f9;
             overflow-x: hidden;
+            line-height: 1.7;
         }
-        
+
         .container {
             max-width: 1200px;
             margin: 0 auto;
             padding: 0 20px;
         }
-        
+
         /* Header Styles */
         header {
-            background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
-            color: white;
-            padding: 80px 0 60px;
-            text-align: center;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .header-content {
-            position: relative;
-            z-index: 2;
-        }
-        
-        .college-logo {
-            font-size: 3rem;
-            margin-bottom: 20px;
-        }
-        
-        h1 {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 3.5rem;
-            margin-bottom: 15px;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-        }
-        
-        .subtitle {
-            font-size: 1.4rem;
-            max-width: 700px;
-            margin: 0 auto 30px;
-            font-weight: 300;
-        }
-        
-        .dark-series-badge {
-            display: inline-block;
-            background-color: var(--accent);
-            color: white;
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-weight: 600;
-            margin-top: 15px;
-            box-shadow: var(--shadow);
-        }
-        
-        /* Notebook Layout */
-        .notebook {
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: var(--shadow);
-            margin: 50px auto;
-            max-width: 900px;
-            position: relative;
-            overflow: hidden;
-        }
-        
-        .notebook::before {
-            content: '';
-            position: absolute;
-            top: 0;
-            left: 50px;
-            width: 2px;
-            height: 100%;
-            background-color: #e74c3c;
-        }
-        
-        .notebook-page {
-            padding: 40px 60px 40px 80px;
-            position: relative;
-        }
-        
-        .page-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2rem;
-            color: var(--primary);
-            margin-bottom: 30px;
+            min-height: 100vh;
             display: flex;
             align-items: center;
+            justify-content: center;
+            position: relative;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--dark) 0%, #16213E 100%);
+            color: white;
+            text-align: center;
         }
-        
-        .page-title .emoji {
+
+        .header-content {
+            z-index: 2;
+            position: relative;
+            padding: 2rem;
+            max-width: 800px;
+        }
+
+        .floating-elements {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            top: 0;
+            left: 0;
+        }
+
+        .floating-element {
+            position: absolute;
+            border-radius: 50%;
+            background: rgba(108, 99, 255, 0.2);
+            animation: float 15s infinite ease-in-out;
+        }
+
+        @keyframes float {
+            0%, 100% { transform: translateY(0) rotate(0deg); }
+            50% { transform: translateY(-30px) rotate(180deg); }
+        }
+
+        h1 {
+            font-size: 4.5rem;
+            margin-bottom: 1.5rem;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+        .subtitle {
+            font-size: 1.8rem;
+            margin-bottom: 2rem;
+            font-weight: 300;
+            opacity: 0.9;
+        }
+
+        .scroll-indicator {
+            position: absolute;
+            bottom: 30px;
+            left: 50%;
+            transform: translateX(-50%);
+            animation: bounce 2s infinite;
+        }
+
+        @keyframes bounce {
+            0%, 20%, 50%, 80%, 100% { transform: translateY(0) translateX(-50%); }
+            40% { transform: translateY(-20px) translateX(-50%); }
+            60% { transform: translateY(-10px) translateX(-50%); }
+        }
+
+        /* Section Styles */
+        section {
+            padding: 100px 0;
+            position: relative;
+        }
+
+        .section-title {
+            text-align: center;
             font-size: 2.5rem;
-            margin-right: 15px;
+            margin-bottom: 3rem;
+            color: var(--dark);
+            position: relative;
         }
-        
-        .notebook-content {
-            font-size: 1.1rem;
-            line-height: 1.8;
+
+        .section-title::after {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 100px;
+            height: 4px;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            border-radius: 2px;
         }
-        
-        .highlight {
-            background-color: rgba(52, 152, 219, 0.1);
-            padding: 2px 5px;
-            border-radius: 3px;
-            font-weight: 600;
+
+        /* Timeline Styles */
+        .timeline {
+            position: relative;
+            max-width: 1000px;
+            margin: 0 auto;
         }
-        
-        /* Memories Grid */
-        .memories-grid {
+
+        .timeline::before {
+            content: '';
+            position: absolute;
+            width: 4px;
+            background: linear-gradient(to bottom, var(--primary), var(--accent));
+            top: 0;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            border-radius: 10px;
+        }
+
+        .timeline-item {
+            padding: 20px 40px;
+            position: relative;
+            width: 50%;
+            opacity: 0;
+            transform: translateY(50px);
+            transition: var(--transition);
+        }
+
+        .timeline-item.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .timeline-item:nth-child(odd) {
+            left: 0;
+            text-align: right;
+        }
+
+        .timeline-item:nth-child(even) {
+            left: 50%;
+        }
+
+        .timeline-content {
+            padding: 30px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: var(--shadow);
+            position: relative;
+            transition: var(--transition);
+        }
+
+        .timeline-content:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
+        }
+
+        .timeline-icon {
+            font-size: 2.5rem;
+            margin-bottom: 15px;
+            display: inline-block;
+            width: 70px;
+            height: 70px;
+            line-height: 70px;
+            border-radius: 50%;
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary), var(--accent));
+            color: white;
+            box-shadow: 0 5px 15px rgba(108, 99, 255, 0.4);
+        }
+
+        .timeline-content h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-size: 1.5rem;
+        }
+
+        /* Interactive Cards */
+        .cards-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
-            margin: 60px 0;
+            margin-top: 50px;
         }
-        
-        .memory-card {
+
+        .card {
             background: white;
-            border-radius: 10px;
+            border-radius: 15px;
             overflow: hidden;
             box-shadow: var(--shadow);
-            transition: transform 0.3s ease;
+            transition: var(--transition);
+            position: relative;
+            opacity: 0;
+            transform: translateY(30px);
         }
-        
-        .memory-card:hover {
+
+        .card.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .card:hover {
             transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.15);
         }
-        
-        .card-header {
-            padding: 20px;
-            background: var(--primary);
-            color: white;
-            display: flex;
-            align-items: center;
-        }
-        
-        .card-header .emoji {
-            font-size: 2rem;
-            margin-right: 15px;
-        }
-        
-        .card-body {
-            padding: 25px;
-        }
-        
-        /* Special Sections */
-        .special-section {
-            background: linear-gradient(135deg, #f39c12 0%, #e74c3c 100%);
-            color: white;
-            padding: 60px 0;
-            margin: 60px 0;
+
+        .card-icon {
+            font-size: 3rem;
             text-align: center;
-            border-radius: 10px;
-        }
-        
-        .special-content {
-            max-width: 800px;
-            margin: 0 auto;
-        }
-        
-        .special-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.5rem;
-            margin-bottom: 30px;
-        }
-        
-        .skills-list {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 15px;
-            margin-top: 30px;
-        }
-        
-        .skill-tag {
-            background: rgba(255, 255, 255, 0.2);
-            padding: 8px 20px;
-            border-radius: 30px;
-            font-weight: 600;
-        }
-        
-        /* Badminton & Canteen Section */
-        .campus-life {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 40px;
-            margin: 60px 0;
-        }
-        
-        .campus-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: var(--shadow);
-        }
-        
-        .campus-image {
-            height: 200px;
-            background-color: #ddd;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 4rem;
-        }
-        
-        .badminton-court {
-            background: linear-gradient(to bottom, #27ae60, #2ecc71);
-        }
-        
-        .canteen {
-            background: linear-gradient(to bottom, #e67e22, #f39c12);
-        }
-        
-        .campus-content {
-            padding: 25px;
-        }
-        
-        .campus-title {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 1.5rem;
-            margin-bottom: 15px;
+            padding: 30px 0 10px;
             color: var(--primary);
         }
-        
+
+        .card-content {
+            padding: 20px;
+        }
+
+        .card h3 {
+            margin-bottom: 15px;
+            color: var(--dark);
+            font-size: 1.4rem;
+        }
+
+        /* Progress Bar */
+        .progress-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 5px;
+            background: rgba(255, 255, 255, 0.1);
+            z-index: 1000;
+        }
+
+        .progress-bar {
+            height: 100%;
+            background: linear-gradient(to right, var(--primary), var(--accent));
+            width: 0%;
+            transition: width 0.3s ease;
+        }
+
         /* Final Section */
-        .final-thoughts {
-            background: var(--primary);
+        .final-section {
+            background: linear-gradient(135deg, var(--dark) 0%, #16213E 100%);
             color: white;
-            padding: 80px 0;
             text-align: center;
-            margin-top: 60px;
+            padding: 150px 0;
+            position: relative;
+            overflow: hidden;
         }
-        
+
         .final-quote {
-            font-family: 'Montserrat', sans-serif;
-            font-size: 2.2rem;
+            font-size: 2.5rem;
             max-width: 800px;
-            margin: 0 auto 30px;
-            line-height: 1.5;
+            margin: 0 auto 40px;
+            line-height: 1.4;
+            position: relative;
+            z-index: 2;
         }
-        
+
         .conclusion {
             font-size: 1.3rem;
             max-width: 700px;
             margin: 0 auto;
-            font-weight: 300;
+            opacity: 0.9;
+            position: relative;
+            z-index: 2;
         }
-        
+
         .eventful {
             display: inline-block;
-            margin-top: 30px;
-            padding: 10px 30px;
-            background: var(--accent);
-            border-radius: 30px;
+            margin-top: 40px;
+            padding: 15px 40px;
+            background: linear-gradient(135deg, var(--secondary), #FF8E9E);
+            border-radius: 50px;
             font-weight: 700;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
+            box-shadow: 0 10px 20px rgba(255, 101, 132, 0.3);
+            position: relative;
+            z-index: 2;
+            transition: var(--transition);
         }
-        
+
+        .eventful:hover {
+            transform: scale(1.05);
+        }
+
         /* Footer */
         footer {
             text-align: center;
             padding: 40px 0;
             color: var(--text);
             font-size: 0.9rem;
+            background: white;
         }
-        
+
         /* Responsive Design */
         @media (max-width: 768px) {
             h1 {
-                font-size: 2.5rem;
+                font-size: 3rem;
             }
-            
+
             .subtitle {
-                font-size: 1.2rem;
+                font-size: 1.4rem;
             }
-            
-            .notebook-page {
-                padding: 30px 20px 30px 40px;
+
+            .timeline::before {
+                left: 31px;
             }
-            
-            .campus-life {
-                grid-template-columns: 1fr;
+
+            .timeline-item {
+                width: 100%;
+                padding-left: 70px;
+                padding-right: 25px;
+                text-align: left;
             }
-            
+
+            .timeline-item:nth-child(odd) {
+                text-align: left;
+            }
+
+            .timeline-item:nth-child(even) {
+                left: 0;
+            }
+
             .final-quote {
-                font-size: 1.8rem;
+                font-size: 2rem;
             }
         }
     </style>
 </head>
 <body>
+    <div class="progress-container">
+        <div class="progress-bar" id="progressBar"></div>
+    </div>
+
     <header>
-        <div class="container">
-            <div class="header-content">
-                <div class="college-logo">🎓</div>
-                <h1>College of Engineering Poonjar</h1>
-                <p class="subtitle">Three years at College of Engineering Poonjar — Computer Engineering. Honestly? Felt less like college and more like a "Dark" web series that I binge-lived.</p>
-                <div class="dark-series-badge">The "Dark" Series Experience</div>
-            </div>
+        <div class="floating-elements">
+            <div class="floating-element" style="width: 100px; height: 100px; top: 20%; left: 10%;"></div>
+            <div class="floating-element" style="width: 150px; height: 150px; top: 60%; right: 10%;"></div>
+            <div class="floating-element" style="width: 80px; height: 80px; bottom: 20%; left: 20%;"></div>
+        </div>
+        <div class="header-content">
+            <h1>Engineering Chronicles</h1>
+            <p class="subtitle">Three years at College of Engineering Poonjar — Computer Engineering.</p>
+            <p>Honestly? Felt less like college and more like a "Dark" web series that I binge-lived.</p>
+        </div>
+        <div class="scroll-indicator">
+            <i class="fas fa-chevron-down fa-2x"></i>
         </div>
     </header>
 
-    <div class="container">
-        <div class="notebook">
-            <div class="notebook-page">
-                <h2 class="page-title"><span class="emoji">👬</span> Friends? Absolute legends.</h2>
-                <div class="notebook-content">
-                    <p>The kind who'd turn a normal day into a full Netflix series. The ones who made every moment memorable, whether it was during late-night study sessions or spontaneous adventures around campus.</p>
+    <section id="friends">
+        <div class="container">
+            <h2 class="section-title">The Legends</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">👬</div>
+                        <h3>Friends? Absolute legends.</h3>
+                        <p>The kind who'd turn a normal day into a full Netflix series.</p>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="memories-grid">
-            <div class="memory-card">
-                <div class="card-header">
-                    <span class="emoji">👨‍🏫</span>
-                    <h3>Teachers? One-of-a-kind</h3>
-                </div>
-                <div class="card-body">
-                    <p>The ones who knew absolutely everything, still tolerated our never-ending questions like it was part of their "teaching package" — half the time I couldn't even tell if they were teaching us or just hanging out with us.</p>
-                </div>
-            </div>
-            
-            <div class="memory-card">
-                <div class="card-header">
-                    <span class="emoji">📚</span>
-                    <h3>Academics?</h3>
-                </div>
-                <div class="card-body">
-                    <p>Ah yes, those beautiful all-nighters where we 'studied' but mostly just discovered new ways to stay awake. Assignments magically completed the night before (sometimes the morning of).</p>
-                </div>
-            </div>
-            
-            <div class="memory-card">
-                <div class="card-header">
-                    <span class="emoji">💡</span>
-                    <h3>Engineering Project?</h3>
-                </div>
-                <div class="card-body">
-                    <p>A miracle disguised as hard work — hours of 'brainstorming', arguments, reworks, and being tossed around like clothes in a dryer, that somehow transformed into a perfect presentation like nothing ever went wrong.</p>
-                </div>
-            </div>
-            
-            <div class="memory-card">
-                <div class="card-header">
-                    <span class="emoji">📝</span>
-                    <h3>Exams?</h3>
-                </div>
-                <div class="card-body">
-                    <p>Basically surprise parties thrown by the syllabus — "oh, you thought you knew me? Guess again." Still, managed to make grades happen… don't ask me how.</p>
+    <section id="teachers" style="background: rgba(245, 245, 247, 0.7);">
+        <div class="container">
+            <h2 class="section-title">The Mentors</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">👨‍🏫</div>
+                        <h3>Teachers? One-of-a-kind.</h3>
+                        <p>The ones who knew absolutely everything, still tolerated our never-ending questions like it was part of their "teaching package" — half the time I couldn't even tell if they were teaching us or just hanging out with us.</p>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="special-section">
-            <div class="special-content">
-                <h2 class="special-title">The Real Learning</h2>
-                <p>Of course, it wasn't all chaos — somewhere in between the laughter, bunks, and late-night dramas, I actually learned a lot about Computer Engineering. From coding marathons to debugging nightmares, labs to projects, I walked away with real skills that will stick with me long after the memories of sleepless nights fade.</p>
+    <section id="academics">
+        <div class="container">
+            <h2 class="section-title">The Struggle</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">📚</div>
+                    <div class="card-content">
+                        <h3>Academics?</h3>
+                        <p>Ah yes, those beautiful all-nighters where we 'studied' but mostly just discovered new ways to stay awake. Assignments magically completed the night before (sometimes the morning of).</p>
+                    </div>
+                </div>
                 
-                <div class="skills-list">
-                    <div class="skill-tag">Coding</div>
-                    <div class="skill-tag">Problem Solving</div>
-                    <div class="skill-tag">Teamwork</div>
-                    <div class="skill-tag">Debugging</div>
-                    <div class="skill-tag">Project Management</div>
+                <div class="card">
+                    <div class="card-icon">💡</div>
+                    <div class="card-content">
+                        <h3>Engineering Project?</h3>
+                        <p>A miracle disguised as hard work — hours of 'brainstorming', arguments, reworks, and being tossed around like clothes in a dryer, that somehow transformed into a perfect presentation like nothing ever went wrong.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">📝</div>
+                    <div class="card-content">
+                        <h3>Exams?</h3>
+                        <p>Basically surprise parties thrown by the syllabus — "oh, you thought you knew me? Guess again." Still, managed to make grades happen… don't ask me how.</p>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="campus-life">
-            <div class="campus-card">
-                <div class="campus-image badminton-court">
-                    🏸
-                </div>
-                <div class="campus-content">
-                    <h3 class="campus-title">Badminton Court Showdowns</h3>
-                    <p>One of the greatest reasons for our class bunks, with wars so serious you'd think Olympic gold was on the line.</p>
-                </div>
-            </div>
-            
-            <div class="campus-card">
-                <div class="campus-image canteen">
-                    🥟
-                </div>
-                <div class="campus-content">
-                    <h3 class="campus-title">Legendary Canteen Puffs</h3>
-                    <p>That deserved their own fan club. The fuel for all those late-night study sessions and the center of countless debates.</p>
+    <section id="learning" style="background: rgba(245, 245, 247, 0.7);">
+        <div class="container">
+            <h2 class="section-title">The Real Learning</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">⚙️</div>
+                        <h3>Beyond the Chaos</h3>
+                        <p>Of course, it wasn't all chaos — somewhere in between the laughter, bunks, and late-night dramas, I actually learned a lot about Computer Engineering. From coding marathons to debugging nightmares, labs to projects, I walked away with real skills that will stick with me long after the memories of sleepless nights fade.</p>
+                    </div>
                 </div>
             </div>
         </div>
+    </section>
 
-        <div class="notebook">
-            <div class="notebook-page">
-                <h2 class="page-title"><span class="emoji">🎯</span> The Real Degree</h2>
-                <div class="notebook-content">
-                    <p>Surviving the chaos: bunks, our two-wheelers 🛵 and those random small trips, canteen debates more heated than lab vivas, tea breaks ☕ longer than lectures, and the eternal "what's for lunch?" battle.</p>
+    <section id="campus-life">
+        <div class="container">
+            <h2 class="section-title">Campus Legends</h2>
+            <div class="cards-container">
+                <div class="card">
+                    <div class="card-icon">🏸</div>
+                    <div class="card-content">
+                        <h3>Badminton Court Showdowns</h3>
+                        <p>One of the greatest reasons for our class bunks, with wars so serious you'd think Olympic gold was on the line.</p>
+                    </div>
+                </div>
+                
+                <div class="card">
+                    <div class="card-icon">🥟</div>
+                    <div class="card-content">
+                        <h3>Legendary Canteen Puffs</h3>
+                        <p>That deserved their own fan club. The unofficial mascots of our college life.</p>
+                    </div>
                 </div>
             </div>
         </div>
-    </div>
+    </section>
 
-    <div class="final-thoughts">
+    <section id="real-degree" style="background: rgba(245, 245, 247, 0.7);">
+        <div class="container">
+            <h2 class="section-title">The Real Degree</h2>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-content">
+                        <div class="timeline-icon">🎯</div>
+                        <h3>Surviving the Chaos</h3>
+                        <p>But the real degree? Surviving the chaos: bunks, our two-wheelers 🛵 and those random small trips, canteen debates more heated than lab vivas, tea breaks ☕ longer than lectures, and the eternal "what's for lunch?" battle.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="final-section">
         <div class="container">
             <div class="final-quote">
                 Three years felt like a lifetime — laughter, fights, dumb decisions, legendary stories.
@@ -434,43 +506,52 @@
             <p class="conclusion">Now it's over. No replay button. Never getting days like those again — and maybe that's why they'll always hit different.</p>
             <div class="eventful">Eventful? Understatement of the century.</div>
         </div>
-    </div>
+    </section>
 
     <footer>
         <div class="container">
-            <p>College of Engineering Poonjar • Computer Engineering • The "Dark" Series Experience</p>
+            <p>College of Engineering Poonjar • Computer Engineering • The Chronicles Continue...</p>
         </div>
     </footer>
 
     <script>
-        // Simple animation for memory cards on scroll
-        document.addEventListener('DOMContentLoaded', function() {
-            const memoryCards = document.querySelectorAll('.memory-card');
-            
-            function checkVisibility() {
-                memoryCards.forEach(card => {
-                    const cardTop = card.getBoundingClientRect().top;
-                    const cardBottom = card.getBoundingClientRect().bottom;
-                    
-                    if (cardTop < window.innerHeight * 0.9 && cardBottom > 0) {
-                        card.style.opacity = '1';
-                        card.style.transform = 'translateY(0)';
-                    }
-                });
-            }
-            
-            // Set initial state
-            memoryCards.forEach(card => {
-                card.style.opacity = '0';
-                card.style.transform = 'translateY(20px)';
-                card.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+        // Progress bar
+        window.onscroll = function() {
+            const winScroll = document.body.scrollTop || document.documentElement.scrollTop;
+            const height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
+            const scrolled = (winScroll / height) * 100;
+            document.getElementById("progressBar").style.width = scrolled + "%";
+        };
+
+        // Scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                }
             });
+        }, observerOptions);
+
+        // Observe elements
+        document.querySelectorAll('.timeline-item, .card').forEach(el => {
+            observer.observe(el);
+        });
+
+        // Parallax effect for floating elements
+        window.addEventListener('scroll', function() {
+            const scrolled = window.pageYOffset;
+            const floatingElements = document.querySelectorAll('.floating-element');
             
-            // Initial check
-            checkVisibility();
-            
-            // Check on scroll
-            window.addEventListener('scroll', checkVisibility);
+            floatingElements.forEach((element, index) => {
+                const speed = 0.5 + (index * 0.1);
+                const yPos = -(scrolled * speed);
+                element.style.transform = `translateY(${yPos}px) rotate(${yPos/10}deg)`;
+            });
         });
     </script>
 </body>
